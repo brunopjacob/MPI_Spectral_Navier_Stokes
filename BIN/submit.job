@@ -1,0 +1,10 @@
+#!/bin/bash
+#SBATCH --job-name="SPECTRAL3DP"
+#SBATCH --output="myout.out"
+#SBATCH --partition=compute
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=16
+#SBATCH --export=ALL
+#SBATCH -t 02:00:00
+#SBATCH -A TG-ASC160059
+mpirun ./SPECTRAL3DP

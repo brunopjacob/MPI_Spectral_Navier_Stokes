@@ -1,0 +1,107 @@
+#################################SPECTRAL 3D##################################
+#                                                                            #
+#                     |                                                      #
+#    SSSSS            | SPECTRAL 3D:   Incompressible Three-Dimensional      #
+#    S       SPECTRAL |                Navier-Stokes Solver Using Fourier    #
+#    SSSSS       3    |                Pseudospectral method                 #
+#        S       D    | Version: 1.0                                         #
+#    SSSSS            |                                                      #
+#                     | Developed by: Bruno J., UCSB                         #
+#                                                                            #
+##############################################################################
+#
+#Input parameters file
+#This file stores the data used during the SPECTRAL simulation
+#
+#
+#==========================================================
+#choose turbulence model                                  =
+#1 = DNS; 2 = LES (Smagorinsky); 3 = LES (dynamic Smag.)  = 
+#==========================================================
+3      #  = ic_set 
+#
+#
+#==========================================================
+#choose initial condition                                 =
+#1 = temporal jet; 2 = temporal wake; 3 = circular jet    = 
+#==========================================================
+2      #  = ic_set 
+#
+#
+#==========================================================
+#choose number of Fourier modes                           =
+#nx = spanwise direction; ny = cross-stream               = 
+#nz = streamwise direction                                =
+#==========================================================
+64      #  = nx 
+64      #  = ny
+64      #  = nz
+#==========================================================
+#choose domain sizes                                      =
+#Lx = spanwise length; Ly = cross-stream length           = 
+#Lz = streamwise length                                   =
+#==========================================================
+40.0d0    #  = Lx
+40.0d0    #  = Ly
+40.0d0    #  = Lz
+#
+#
+#==========================================================
+#choose temporal integration scheme                       =
+#1 = AB4; 2 = RK46; 3 = Euler; 4= RK2 (Heun)              =
+#5 = RK4 (Classic)                                        =
+#==========================================================
+2        #  = temp_integration_set
+#
+# 
+#==========================================================
+#choose time step input                                   =
+#1 = set dt directly ; 2 = evaluate dt using CFL          =
+#==========================================================
+1        #  = temp_input_set
+#
+#
+#==========================================================
+#choose filter	                                          =
+#1 = no filter;                                           =
+#2 = Sharpened Raised Cosine (SRC);                       =
+#3 = Raised Cosine (SRC);                                 =
+#4 = Lanczos;                                             =
+#5 = Exponential;                                         =
+#==========================================================
+1     #  = filter_set
+# 
+# 
+#==========================================================
+#define dimensionless parameters                          =
+#==========================================================
+#Primary variables - (used to solve the fields)
+0.00289d0      #  = mu (molecular viscosity)
+#
+#Set amplitude perturbation - (perturbs initial condition)
+0.001d0        #  = amplitude_perturb
+#
+#
+#==========================================================
+#choose time parameters/controls                          =
+#dt               = time step                             =
+#CFL              = temporal under-relaxation             =
+#nt               = number of time steps                  =
+#freqsave         = frequency of data saving              =
+#freqsave_screen  = frequency of data saving              =
+#freq_restart     = frequency of restart backup           =
+#freq_spectrum    = frequency of TKE spectrum calculation =
+#==========================================================
+0.01d0       # =  dt
+0.01d0       # =  CFL
+1000000      # =  nt
+100          # =  freqsave
+10           # =  freqsave_screen
+10           # =  freq_restart
+100          # =  freq_spectrum
+#
+#
+#==========================================================
+#choose output filename		                          =
+#==========================================================
+'results_p'
